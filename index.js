@@ -40,4 +40,4 @@ mongoose
   })
   .catch((error) => console.log(`Error: ${error}`));
 
-  module.exports = app;
+export default app;
