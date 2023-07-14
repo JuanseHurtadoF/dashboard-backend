@@ -4,6 +4,6 @@ import { getContacts, createContact } from "../controllers/logihub.js";
 const router = express.Router();
 
 router.get("/contacts", getContacts);
-router.get("/create", createContact)
+router.post("/create", createContact);
 
 export default router;

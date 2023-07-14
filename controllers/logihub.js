@@ -24,17 +24,21 @@ export const getContacts = async (req, res) => {
 export const createContact = async (req, res) => {
   const { email } = req.body;
 
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
   try {
     const response = await axios.post(
       "https://api.hubapi.com/crm/v3/objects/contacts",
       {
         properties: {
-          email: "juansebastianhurtadof@gmail.com",
+          email: email,
         },
       },
       {
         headers: {
-          Authorization: `Bearer pat-na1-f6b1c779-1a1f-430e-b8d5-b2e672a40a09`,
+          Authorization: `Bearer ${process.env.HUBSPOT_TOKEN}`,
           "Content-Type": "application/json",
         },
       }
@@ -42,7 +46,7 @@ export const createContact = async (req, res) => {
 
     res.status(201).json(response.data);
     res.status(200).json({ test: "test" });
-  } catch (error) { 
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
