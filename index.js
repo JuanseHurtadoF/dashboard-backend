@@ -9,7 +9,7 @@ import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
-import AffiliateStat from "./models/AffiliateStat.js";
+import logihubRoutes from "./routes/logihub.js";
 
 // Initial configurations and middlewate
 dotenv.config();
@@ -27,6 +27,7 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+app.use("/logihub", logihubRoutes);
 
 // Mongoose
 const PORT = process.env.PORT || 9000;
