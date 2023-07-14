@@ -45,7 +45,6 @@ export const createContact = async (req, res) => {
     );
 
     res.status(201).json(response.data);
-    res.status(200).json({ test: "test" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
