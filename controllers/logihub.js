@@ -24,10 +24,6 @@ export const getContacts = async (req, res) => {
 export const createContact = async (req, res) => {
   const { email } = req.body;
 
-  //   if (!email) {
-  //     return res.status(400).json({ message: "Email is required" });
-  //   }
-
   try {
     const response = await axios.post(
       "https://api.hubapi.com/crm/v3/objects/contacts",
@@ -46,7 +42,7 @@ export const createContact = async (req, res) => {
 
     res.status(201).json(response.data);
     res.status(200).json({ test: "test" });
-  } catch (error) {
+  } catch (error) { 
     res.status(500).json({ message: error.message });
   }
 };
