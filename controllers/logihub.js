@@ -22,10 +22,10 @@ export const getContacts = async (req, res) => {
 };
 
 export const createContact = async (req, res) => {
-  const { email } = req.body;
+  const { email, name, phone } = req.body;
 
-  if (!email) {
-    return res.status(400).json({ message: "Email is required" });
+  if (!email || !name || !phone) {
+    return res.status(400).json({ message: "Email, Name and Phone are required" });
   }
 
   try {
@@ -34,6 +34,8 @@ export const createContact = async (req, res) => {
       {
         properties: {
           email: email,
+          name: name, 
+          phone: phone,
         },
       },
       {
