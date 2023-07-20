@@ -21,8 +21,6 @@ export const getContacts = async (req, res) => {
   }
 };
 
-
-
 export const createContact = async (req, res) => {
   const { email } = req.body;
 
