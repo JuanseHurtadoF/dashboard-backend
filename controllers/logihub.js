@@ -34,7 +34,7 @@ export const createContact = async (req, res) => {
       {
         properties: {
           email: email,
-          firstname: name,
+          firstName: name,
           phone: phone
         },
       },
